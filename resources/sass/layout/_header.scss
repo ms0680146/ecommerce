@@ -1,7 +1,7 @@
 header.with-background {
     background: url('/img/triangles.svg');
     background-size: cover;
-    color: $white;
+    color: $text-color;
 
     .top-nav {
       display: flex;
@@ -15,15 +15,10 @@ header.with-background {
       }
 
       ul {
-        // display: flex;
-        // text-transform: uppercase;
-        // justify-content: space-between;
-        // width: 40%;
-
         a {
-          color: $white;
+          color: $text-color;
           &:hover {
-            color: darken($white, 10%);
+            color: darken($text-color, 10%);
           }
         }
 
@@ -32,32 +27,24 @@ header.with-background {
 
     .hero {
       display: grid;
-      grid-template-columns: 1fr 1fr; //repeat(2, 1fr)
-      grid-gap: $gutter;
-      padding-top: 20px;
-      padding-bottom: 84px;
-
-      .hero-image {
-        padding-left: 60px;
-      }
+      padding-top: 10px;
+      padding-bottom: 50px;
 
       h1 {
-        font-size: 52px;
-        margin-top: 50px;
+        font-size: 50px;
+        margin-top: 10px;
+        padding-left: 370px;
       }
 
       p {
-        margin: 40px 0 68px;
-      }
-
-      .button {
-        margin-right: 14px;
+        margin: 30px 0 68px;
+        padding-left: 370px;
       }
     }
   }
 
   header {
-    background: $gray-background;
+    background: url('/img/triangles.svg');
 
     .top-nav {
       display: flex;
@@ -68,7 +55,7 @@ header.with-background {
       .logo {
         font-weight: bold;
         font-size: 28px;
-        color: $white;
+        color: $text-color;
         margin-right: 58px;
       }
 
@@ -89,9 +76,9 @@ header.with-background {
         }
 
         a {
-          color: $white;
+          color: $text-color;
           &:hover {
-            color: darken($white, 10%);
+            color: darken($text-color, 10%);
           }
         }
 
