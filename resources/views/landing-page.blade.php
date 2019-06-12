@@ -13,10 +13,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-
-
     </head>
+
     <body>
         <div id="app">
             <header class="with-background">
@@ -51,15 +49,6 @@
                         <a href="#" class="button">Featured</a>
                         <a href="#" class="button">On Sale</a>
                     </div>
-
-                    {{-- <div class="tabs">
-                        <div class="tab">
-                            Featured
-                        </div>
-                        <div class="tab">
-                            On Sale
-                        </div>
-                    </div> --}}
 
                     <div class="products text-center">
                         @foreach ($products as $product)

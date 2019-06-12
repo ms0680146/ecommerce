@@ -7,7 +7,6 @@
 @endsection
 
 @section('content')
-
     <div class="breadcrumbs">
         <div class="container">
             <a href="/">首頁</a>
@@ -34,6 +33,5 @@
     </div> <!-- end product-section -->
     
     @include('partials.might-like')
-
-
+    
 @endsection

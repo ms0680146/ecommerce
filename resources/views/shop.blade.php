@@ -1,13 +1,12 @@
 @extends('layout')
 
-@section('title', 'Shops')
+@section('title', '商店')
 
 @section('extra-css')
 
 @endsection
 
 @section('content')
-
     <div class="breadcrumbs">
         <div class="container">
             <a href="/">首頁</a>
@@ -50,7 +49,5 @@
 
             </div> <!-- end products -->
         </div>
-    </div>
-
-
+    </div><!-- end products-section -->
 @endsection
