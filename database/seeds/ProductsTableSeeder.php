@@ -15,37 +15,65 @@ class ProductsTableSeeder extends Seeder
         Product::create([
             'name' => 'MacBook Pro',
             'slug' => 'macbook-pro',
-            'detail' => '15吋, 1 TB SSD, 32GB RAM',
-            'price' => 45000,
-            'description' => '亮麗的 Retina 顯示器, 雙核心 Intel Core i5 處理器, Intel lris Plus Graphics 640, 
-                超快速 SSD 儲存裝置, 長達 10 小時電池續航力, 802.11 ac WI-F',
+            'detail' => '15 inch, 1TB SSD, 32GB RAM',
+            'price' => 249999,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
-
         Product::create([
-            'name' => 'MacBook Pro 1',
-            'slug' => 'macbook-pro 1',
-            'detail' => '1 15吋, 1 TB SSD, 32GB RAM',
-            'price' => 45000,
-            'description' => '1 亮麗的 Retina 顯示器, Intel lris Plus Graphics 640, 
-                超快速 SSD 儲存裝置, 長達 10 小時電池續航力, 802.11 ac WI-F',
+            'name' => 'Laptop 2',
+            'slug' => 'laptop-2',
+            'detail' => '15 inch, 1TB SSD, 16GB RAM',
+            'price' => 149999,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
-
         Product::create([
-            'name' => 'MacBook Pro 2',
-            'slug' => 'macbook-pro 2',
-            'detail' => '2 15吋, 1 TB SSD, 32GB RAM',
-            'price' => 45000,
-            'description' => '2 雙核心 Intel Core i5 處理器, Intel lris Plus Graphics 640, 
-                超快速 SSD 儲存裝置, 長達 10 小時電池續航力, 802.11 ac WI-F',
+            'name' => 'Laptop 3',
+            'slug' => 'laptop-3',
+            'detail' => '13 inch, 1TB SSD, 16GB RAM',
+            'price' => 149999,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
-
         Product::create([
-            'name' => 'MacBook Pro 3',
-            'slug' => 'macbook-pro 3',
-            'detail' => '3 15吋, 1 TB SSD, 32GB RAM',
-            'price' => 45000,
-            'description' => '3 Intel lris Plus Graphics 640, 超快速 SSD 儲存裝置, 長達 10 小時電池續航力, 802.11 ac WI-F',
+            'name' => 'Laptop 4',
+            'slug' => 'laptop-4',
+            'detail' => '15 inch, 1TB SSD, 16GB RAM',
+            'price' => 149999,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
-
+        Product::create([
+            'name' => 'Laptop 5',
+            'slug' => 'laptop-5',
+            'detail' => '15 inch, 1TB SSD, 16GB RAM',
+            'price' => 149999,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
+        ]);
+        Product::create([
+            'name' => 'Laptop 6',
+            'slug' => 'laptop-6',
+            'detail' => '15 inch, 1TB SSD, 16GB RAM',
+            'price' => 149999,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
+        ]);
+        Product::create([
+            'name' => 'Laptop 7',
+            'slug' => 'laptop-7',
+            'detail' => '15 inch, 1TB SSD, 16GB RAM',
+            'price' => 149999,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
+        ]);
+        Product::create([
+            'name' => 'Laptop 8',
+            'slug' => 'laptop-8',
+            'detail' => '15 inch, 1TB SSD, 16GB RAM',
+            'price' => 149999,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
+        ]);
+        Product::create([
+            'name' => 'Laptop 9',
+            'slug' => 'laptop-9',
+            'detail' => '15 inch, 1TB SSD, 16GB RAM',
+            'price' => 149999,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
+        ]);
     }
 }
