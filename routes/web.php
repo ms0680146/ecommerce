@@ -11,6 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('landing-page');
-});
+Route::get('/', 'LandingPageController@index')->name('landing-page');
