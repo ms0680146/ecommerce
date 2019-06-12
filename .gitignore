@@ -21,6 +21,5 @@ Homestead.json
 composer.lock
 package-lock.json
 /vendor
-.env.example
 /public/css/*.css
 /public/js/*.js
