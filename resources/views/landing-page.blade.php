@@ -23,6 +23,12 @@
                 <div class="top-nav container">
                     <div class="top-nav-left">
                         <div class="logo">電子商務</div>
+                        <ul>
+                            <li><a href="{{ route('shop.index') }}">商品</a></li>
+                            <li><a href="#">關於</a></li>
+                            <li><a href="#">部落格</a></li>
+                            <li><a href="#">購物車 <span class="cart-count"><span>3</span></span></a></li>
+                        </ul>
                     </div>
                     <div class="top-nav-right">
                     </div>
@@ -37,9 +43,9 @@
 
            <div class="featured-section">
                 <div class="container">
-                    <h1 class="text-center">Laravel Ecommerce</h1>
+                    <h1 class="text-center">商品</h1>
 
-                    <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic lorem.</p>
+                    <p class="section-description">請挑選您喜歡的商品吧.</p>
 
                     <div class="text-center button-container">
                         <a href="#" class="button">Featured</a>
@@ -58,15 +64,15 @@
                     <div class="products text-center">
                         @foreach ($products as $product)
                             <div class="product">
-                                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                                <a href="#"><div class="product-name">{{ $product->name }}</div></a>
+                                <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ asset('img/products/'.$product->slug.'.jpg') }}" alt="product"></a>
+                                <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
                                 <div class="product-price">{{ $product->price }}</div>
                             </div>
                         @endforeach
                     </div> <!-- end products -->
 
                     <div class="text-center button-container">
-                        <a href="" class="button">View more products</a>
+                        <a href="{{ route('shop.index') }}" class="button">View more products</a>
                     </div>
 
                 </div> <!-- end container -->
