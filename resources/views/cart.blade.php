@@ -24,6 +24,16 @@
                 </div>
             @endif
 
+            @if(session()->has('errors'))
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             @if (Cart::instance(config('cart.cart_type'))->count() > 0)
             <h2>{{ Cart::instance(config('cart.cart_type'))->count()}} 項商品被加入購物車</h2>
             <div class="cart-table">
@@ -49,15 +59,13 @@
                             </form>
                         </div>
                         <div>
-                            <select class="quantity">
-                                <option selected="">1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="quantity" data-href="{{ route('cart.update', $item->rowId) }}" data-token="{{ csrf_token() }}">
+                                @for($i=1; $i <= 5; $i++)
+                                    <option {{ $item->qty == $i ? 'selected' : '' }} >{{ $i }}</option>
+                                @endfor
                             </select>
                         </div>
-                        <div>{{ $item->model->price}}</div>
+                        <div>{{ $item->subtotal}}</div>
                     </div>
                 </div> <!-- end cart-table-row -->
                 @endforeach
@@ -139,5 +147,31 @@
 
     @include('partials.might-like')
 
+@endsection
 
+@section('extra-js')
+    <script src="{{ asset('js/app.js')}}"> </script>
+    <script>
+
+        $('.quantity').each(function() {
+            $(this).on('change', function () {
+                console.log( $(this).val());
+                console.log( $(this).data('href'));
+                $.ajax({
+                    url:  $(this).data('href'),
+                    data: {
+                        "quantity": $(this).val(),
+                        "_token": $(this).data('token')
+                    },
+                    type: "PATCH",
+                    success: function() {
+                        window.location.href = '{{ route('cart.index') }}'
+                    },
+                    error: function (xhr) {
+                        window.location.href = '{{ route('cart.index') }}'
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
