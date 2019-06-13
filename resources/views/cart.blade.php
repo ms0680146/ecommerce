@@ -24,21 +24,10 @@
                 </div>
             @endif
 
-            @if(count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            @if (Cart::instance('cart')->count() > 0)
-            <h2>{{ Cart::instance('cart')->count()}} 項商品被加入購物車</h2>
-
+            @if (Cart::instance(config('cart.cart_type'))->count() > 0)
+            <h2>{{ Cart::instance(config('cart.cart_type'))->count()}} 項商品被加入購物車</h2>
             <div class="cart-table">
-                @foreach(Cart::instance('cart')->content() as $item)
+                @foreach(Cart::instance(config('cart.cart_type'))->content() as $item)
                 <div class="cart-table-row">
                     <div class="cart-table-row-left">
                         <a href="{{ route('shop.show', $item->model->slug) }}"><img src="{{ asset('img/products/'.$item->model->slug.'.jpg') }}" alt="item" class="cart-table-img"></a>
@@ -93,9 +82,9 @@
                         <span class="cart-totals-total">結帳總金額</span>
                     </div>
                     <div class="cart-totals-subtotal">
-                        {{ Cart::instance('cart')->subtotal() }} <br>
-                        {{ Cart::instance('cart')->tax() }} <br>
-                        <span class="cart-totals-total">{{ Cart::instance('cart')->total() }}</span>
+                        {{ Cart::instance(config('cart.cart_type'))->subtotal() }} <br>
+                        {{ Cart::instance(config('cart.cart_type'))->tax() }} <br>
+                        <span class="cart-totals-total">{{ Cart::instance(config('cart.cart_type'))->total() }}</span>
                     </div>
                 </div>
             </div> <!-- end cart-totals -->
@@ -112,9 +101,9 @@
                 <div class="spacer"></div>
             @endif
 
-            @if (Cart::instance('saveForLater')->count() > 0)
+            @if (Cart::instance(config('cart.saveForLater_type'))->count() > 0)
             <div class="saved-for-later cart-table">
-                @foreach(Cart::instance('saveForLater')->content() as $item)
+                @foreach(Cart::instance(config('cart.saveForLater_type'))->content() as $item)
                 <div class="cart-table-row">
                     <div class="cart-table-row-left">
                         <a href="{{ route('shop.show', $item->model->slug) }}"><img src="{{ asset('img/products/'.$item->model->slug.'.jpg') }}" alt="item" class="cart-table-img"></a>

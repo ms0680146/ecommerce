@@ -64,4 +64,7 @@ return [
 
     ],
 
+    'cart_type' => 'cart', 
+    'saveForLater_type' => 'saveForLater',
+
 ];
