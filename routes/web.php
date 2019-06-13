@@ -12,5 +12,19 @@
 */
 
 Route::get('/', 'LandingPageController@index')->name('landing-page');
+
 Route::get('/shop', 'ShopController@index')->name('shop.index');
 Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
+
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart', 'CartController@store')->name('cart.store');
+Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
+Route::post('/cart/switch_to_save_for_later/{product}', 'CartController@switchToSaveForLater')->name('cart.switchToSaveForLater');
+
+Route::delete('/saveForLater/{product}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
+Route::post('/saveForLater/switch_to_cart/{product}', 'SaveForLaterController@switchToCart')->name('saveForLater.switchToCart');
+
+
+Route::get('/empty', function() {
+    Cart::instance('SaveForLater')->destroy();
+});
