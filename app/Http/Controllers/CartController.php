@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -37,6 +39,35 @@ class CartController extends Controller
 
         cart::instance(config('cart.cart_type'))->add($request->id, $request->name, 1, $request->price)->associate('App\Product');
         return redirect()->route('cart.index')->with('success_message', '成功加入購物車!');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {    
+        $validator = Validator::make($request->all(), [
+            'quantity' => 'required|integer|between:1,5',
+        ]);
+
+        if ($validator->fails()) {
+            session()->flash('errors', $validator->messages()->all());
+            return response()->json(['success' => false], 400);
+        }
+
+        try {
+            Cart::instance(config('cart.cart_type'))->update($id, $request->quantity);
+            session()->flash('success_message',  '此商品的數量已被更新');
+        } catch(\Exception $e) {
+            Log::error($e);
+            return response()->json(['success' => false], 500);
+        }
+
+        return response()->json(['success' => true] , 200);
     }
 
     /**
