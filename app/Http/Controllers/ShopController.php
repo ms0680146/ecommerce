@@ -33,7 +33,7 @@ class ShopController extends Controller
             }
         } else {
             $categorySlug = 'feature';
-            $products = $this->productRepo->getAllProducts($pgCount);
+            $products = $this->productRepo->getFeatureProducts($pgCount);
         }
 
         return view('shop', compact('products', 'categories', 'categorySlug'));

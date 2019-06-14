@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('detail', 256)->nullable();
             $table->decimal('price', 10, 2);
             $table->string('description', 512);
+            $table->boolean('feature')->default(false);
             $table->timestamps();
         });
     }
