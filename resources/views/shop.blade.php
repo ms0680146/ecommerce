@@ -26,7 +26,7 @@
         </div> <!-- end sidebar -->
         <div>
             <div class="products-header">
-                <h1 class="stylish-heading">{{ $categoryName }}</h1>
+                <h1 class="stylish-heading">{{ $categorySlug }}</h1>
                 <div>
                     <strong>價格: </strong>
                     <a href="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'low_high']) }}">價格由低至高</a> |
@@ -46,6 +46,9 @@
                 @endforelse
 
             </div> <!-- end products -->
+
+            <div class="spacer"></div>
+                {!! $products->appends(request()->input())->links() !!}
         </div>
     </div><!-- end products-section -->
 @endsection
