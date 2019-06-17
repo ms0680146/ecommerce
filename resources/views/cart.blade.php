@@ -24,13 +24,9 @@
                 </div>
             @endif
 
-            @if(session()->has('errors'))
+            @if(session()->has('error'))
                 <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                    {{ session()->get('error') }}
                 </div>
             @endif
 
@@ -65,41 +61,27 @@
                                 @endfor
                             </select>
                         </div>
-                        <div>{{ $item->subtotal}}</div>
+                        <div>{{ $item->subtotal }}</div>
                     </div>
                 </div> <!-- end cart-table-row -->
                 @endforeach
             </div> <!-- end cart-table -->
 
-            <a href="#" class="have-code">Have a Code?</a>
-
-            <div class="have-code-container">
-                <form action="#">
-                    <input type="text">
-                    <button type="submit" class="button button-plain">Apply</button>
-                </form>
-            </div> <!-- end have-code-container -->
-
             <div class="cart-totals">
                 <div class="cart-totals-left"></div>
-
                 <div class="cart-totals-right">
                     <div>
-                        商品總計 <br>
-                        稅(13%) <br>
                         <span class="cart-totals-total">結帳總金額</span>
                     </div>
                     <div class="cart-totals-subtotal">
-                        {{ Cart::instance(config('cart.cart_type'))->subtotal() }} <br>
-                        {{ Cart::instance(config('cart.cart_type'))->tax() }} <br>
-                        <span class="cart-totals-total">{{ Cart::instance(config('cart.cart_type'))->total() }}</span>
+                        <span class="cart-totals-total">{{ round(Cart::instance(config('cart.cart_type'))->subtotal()) }} 元</span>
                     </div>
                 </div>
             </div> <!-- end cart-totals -->
 
             <div class="cart-buttons">
-                <a href="#" class="button">Continue Shopping</a>
-                <a href="#" class="button-primary">Proceed to Checkout</a>
+                <a href="{{ route('shop.index') }}" class="button">繼續購物</a>
+                <a href="{{ route('checkout.index') }}" class="button-primary">前往結帳</a>
             </div>
 
             @else

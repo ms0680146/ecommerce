@@ -24,3 +24,8 @@ Route::post('/cart/switch_to_save_for_later/{product}', 'CartController@switchTo
 
 Route::delete('/saveForLater/{product}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
 Route::post('/saveForLater/switch_to_cart/{product}', 'SaveForLaterController@switchToCart')->name('saveForLater.switchToCart');
+
+Route::post('/coupon', 'CouponController@store')->name('coupon.store');
+Route::delete('/coupon', 'CouponController@destroy')->name('coupon.destroy');
+
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
