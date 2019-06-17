@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
+use App\Repositories\ProductRepository;
 
 class LandingPageController extends Controller
 {
-    
+    protected $productRepo;
+
+    public function __construct(productRepository $productRepo)
+    {
+        $this->productRepo = $productRepo;
+    }
+
     public function index()
     {
-        $products = Product::inRandomOrder()->take(8)->get();
+        $products = $this->productRepo->getFeatureProducts(16);
         return view('landing-page', compact('products'));
     }
 }
