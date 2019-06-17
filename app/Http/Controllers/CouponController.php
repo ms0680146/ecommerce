@@ -20,7 +20,7 @@ class CouponController extends Controller
         $coupon = Coupon::where('code', $request->coupon_code)->first();
         
         if (!isset($coupon)) {
-            return redirect()->route('cart.index')->with('error', '未找到此折扣碼，請再嘗試一次!');
+            return redirect()->route('checkout.index')->with('error', '未找到此折扣碼，請再嘗試一次!');
         }
      
         session()->put('coupon', [
@@ -28,7 +28,7 @@ class CouponController extends Controller
             'discount' => $coupon->discount(Cart::instance(config('cart.cart_type'))->subtotal()),
         ]);
         
-        return redirect()->route('cart.index')->with('success_message', '可以使用此折扣碼!');
+        return redirect()->route('checkout.index')->with('success_message', '可以使用此折扣碼!');
     }
 
 
@@ -41,6 +41,6 @@ class CouponController extends Controller
     {
         session()->forget('coupon');
 
-        return redirect()->route('cart.index')->with('success_message', '折扣碼成功移除!');
+        return redirect()->route('checkout.index')->with('success_message', '折扣碼成功移除!');
     }
 }

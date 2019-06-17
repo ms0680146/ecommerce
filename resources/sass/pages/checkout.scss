@@ -10,7 +10,7 @@ h1.checkout-heading {
   margin: 40px auto 80px;
 
   .checkout-table-container {
-    margin-left: 124px;
+    margin-left: 10px;
   }
 
   h2 {
@@ -79,33 +79,36 @@ h1.checkout-heading {
       line-height: 2.2;
     }
   }
-}
+  
+  .have-code {
+    display: block;
+    margin: 14px 0;
+  }
 
+  .have-code-container {
+    border: 1px solid $text-color-light;
+    padding: 16px;
 
+    form {
+      display: flex;
+      justify-content: space-between;
+    }
 
-/**
-* The CSS shown here will not be introduced in the Quickstart guide, but shows
-* how you can use CSS to style your Element's container.
-*/
-.StripeElement {
-  background-color: white;
-  padding: 16px 16px;
-  border: 1px solid #ccc;
+    input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      font-size: 16px;
+    }
 
-}
+    input[type="submit"] {
+      background: white;
+      border: 1px solid $text-color-light;
+      padding-top: 8px;
+      padding-bottom: 8px;
 
-.StripeElement--focus {
-  // box-shadow: 0 1px 3px 0 #cfd7df;
-}
-
-.StripeElement--invalid {
-  border-color: #fa755a;
-}
-
-.StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
-}
-
-#card-errors {
-  color: #fa755a;
+      &:hover {
+        background: $text-color;
+      }
+    }
+  }
 }

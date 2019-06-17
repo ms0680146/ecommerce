@@ -26,9 +26,7 @@
 
             @if(session()->has('error'))
                 <div class="alert alert-danger">
-                    <ul>
-                        {{ session()->get('error') }}
-                    </ul>
+                    {{ session()->get('error') }}
                 </div>
             @endif
 
@@ -63,57 +61,27 @@
                                 @endfor
                             </select>
                         </div>
-                        <div>{{ $item->subtotal}}</div>
+                        <div>{{ $item->subtotal }}</div>
                     </div>
                 </div> <!-- end cart-table-row -->
                 @endforeach
             </div> <!-- end cart-table -->
 
-            @if (!session()->has('coupon'))
-                <a href="#" class="have-code">是否有折扣碼?</a>
-                <div class="have-code-container">
-                    <form action="{{ route('coupon.store') }}" method="POST">
-                        {{ csrf_field() }}
-                        <input type="text" name="coupon_code">
-                        <button type="submit" class="button button-plain">提交</button>
-                    </form>
-                </div> <!-- end have-code-container -->
-            @endif
-
             <div class="cart-totals">
                 <div class="cart-totals-left"></div>
                 <div class="cart-totals-right">
                     <div>
-                        商品總計 <br>
-                        @if (session()->has('coupon'))
-                        折扣碼({{ session()->get('coupon')['name'] }})
-                            <form action="{{ route('coupon.destroy') }}" method="POST" style="display:inline">
-                                {{ csrf_field() }}
-                                {{ method_field('delete') }}
-                                <button type="submit" style="font-size:14px"> 移除 </button>
-                            </form>
-                            <br>
-                        @endif
                         <span class="cart-totals-total">結帳總金額</span>
                     </div>
-                    @php
-                        $subTotal = Cart::instance(config('cart.cart_type'))->subtotal();
-                        $discount = session()->has('coupon') ? session()->get('coupon')['discount'] : 0;
-                        $total = round($subTotal - $discount);
-                    @endphp
                     <div class="cart-totals-subtotal">
-                        {{ $subTotal }} 元<br>
-                        @if (session()->has('coupon'))
-                            -{{ $discount }} 元<br>
-                        @endif
-                        <span class="cart-totals-total">{{ $total }} 元</span>
+                        <span class="cart-totals-total">{{ round(Cart::instance(config('cart.cart_type'))->subtotal()) }} 元</span>
                     </div>
                 </div>
             </div> <!-- end cart-totals -->
 
             <div class="cart-buttons">
-                <a href="#" class="button">Continue Shopping</a>
-                <a href="#" class="button-primary">Proceed to Checkout</a>
+                <a href="{{ route('shop.index') }}" class="button">繼續購物</a>
+                <a href="{{ route('checkout.index') }}" class="button-primary">前往結帳</a>
             </div>
 
             @else

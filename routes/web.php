@@ -27,3 +27,7 @@ Route::post('/saveForLater/switch_to_cart/{product}', 'SaveForLaterController@sw
 
 Route::post('/coupon', 'CouponController@store')->name('coupon.store');
 Route::delete('/coupon', 'CouponController@destroy')->name('coupon.destroy');
+
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+
+Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
