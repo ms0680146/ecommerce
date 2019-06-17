@@ -21,7 +21,7 @@ class Coupon extends Model
                 $salePrice = (int) $this->sale_string;
                 break;
             case self::SALE_TYPE_DISCOUNT:
-                $salePrice = ((int) $this->sale_string) * $total;
+                $salePrice = (1 - $this->sale_string) * $total;
                 break;
             default:
                 $salePrice = 0;    

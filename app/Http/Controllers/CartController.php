@@ -55,7 +55,7 @@ class CartController extends Controller
         ]);
 
         if ($validator->fails()) {
-            session()->flash('errors', $validator->messages()->all());
+            session()->flash('error', '數量發生問題');
             return response()->json(['success' => false], 400);
         }
 
