@@ -9,11 +9,6 @@ class Coupon extends Model
     const SALE_TYPE_PRICE = 1;
     const SALE_TYPE_DISCOUNT = 2;
 
-    public function findByCode(string $code)
-    {
-        return self::where('code', $code)->first();
-    }
-
     public function discount($total)
     {
         switch($this->sale_type) {
