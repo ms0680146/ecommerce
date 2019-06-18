@@ -25,7 +25,7 @@
 
 
 <body class="@yield('body-class', '')">
-    @include('partials.nav')
+    @include('partials.menus.nav')
 
     @yield('content')
 
