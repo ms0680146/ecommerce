@@ -32,5 +32,3 @@ Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->mid
 Route::get('/guest/checkout', 'CheckoutController@index')->name('guest.checkout.index');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
