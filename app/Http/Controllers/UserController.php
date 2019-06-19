@@ -7,24 +7,14 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit()
+
+    public function profileEdit()
     {
         $user = auth()->user();
         return view('my-profile', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request)
+    public function profileUpdate(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
@@ -48,5 +38,12 @@ class UserController extends Controller
         $user->fill($input)->save();
 
         return back()->with('success_message', '成功更新個人資料及密碼!');
+    }
+    
+    public function orderIndex()
+    {
+        $user = auth()->user();
+        $orders = $user->orders()->with('products')->get();
+        return view('my-order', compact('user', 'orders'));
     }
 }

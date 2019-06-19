@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'My Profile')
+@section('title', '個人頁面')
 
 @section('extra-css')
     <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
@@ -33,8 +33,8 @@
     <div class="products-section container">
         <div class="sidebar">
             <ul>
-              <li class="active"><a href="{{ route('users.edit') }}">帳號設定</a></li>
-              <li><a href="#">我的訂購</a></li>
+              <li class="active"><a href="{{ route('users.profile.edit') }}">帳號設定</a></li>
+              <li><a href="{{ route('users.order.index') }}">我的訂購</a></li>
             </ul>
         </div> <!-- end sidebar -->
         <div class="my-profile">
@@ -43,7 +43,7 @@
             </div>
 
             <div>
-                <form action="{{ route('users.update') }}" method="POST">
+                <form action="{{ route('users.profile.update') }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
                     <div class="form-control">

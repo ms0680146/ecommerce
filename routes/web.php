@@ -31,8 +31,9 @@ Route::delete('/coupon', 'CouponController@destroy')->name('coupon.destroy');
 Route::middleware('auth')->group(function() {
     Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
     Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
-    Route::get('/my-profile', 'UserController@edit')->name('users.edit');
-    Route::patch('/my-profile', 'UserController@update')->name('users.update');
+    Route::get('/my/profile', 'UserController@profileEdit')->name('users.profile.edit');
+    Route::patch('/my/profile', 'UserController@profileUpdate')->name('users.profile.update');
+    Route::get('/my/order', 'UserController@orderIndex')->name('users.order.index');
 });
 
 Route::get('/thanks', 'StaticHtmlController@thanks')->name('static.thanks');
