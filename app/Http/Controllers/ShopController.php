@@ -25,15 +25,21 @@ class ShopController extends Controller
         if ($request->category) {
             $categorySlug = $request->category;
             if ($request->sort === 'low_high') {
-                $products = $this->productRepo->getProductsByCategorySlug($categorySlug, $pgCount, 'price');
-            } elseif ($request->sort == 'high_low') {
+                $products = $this->productRepo->getProductsByCategorySlug($categorySlug, $pgCount, 'price', 'ASC');
+            } elseif ($request->sort === 'high_low') {
                 $products = $this->productRepo->getProductsByCategorySlug($categorySlug, $pgCount, 'price', 'DESC');
             } else {
                 $products = $this->productRepo->getProductsByCategorySlug($categorySlug, $pgCount);
             }
         } else {
             $categorySlug = 'feature';
-            $products = $this->productRepo->getFeatureProducts($pgCount);
+            if ($request->sort === 'low_high') {
+                $products = $this->productRepo->getFeatureProducts($pgCount, 'price', 'ASC');
+            } elseif ($request->sort === 'high_low') {
+                $products = $this->productRepo->getFeatureProducts($pgCount, 'price', 'DESC');
+            } else {
+                $products = $this->productRepo->getFeatureProducts($pgCount);
+            }
         }
 
         return view('shop', compact('products', 'categories', 'categorySlug'));
