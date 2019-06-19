@@ -6,9 +6,9 @@ use App\Product;
 
 class ProductRepository
 {
-    public function getFeatureProducts(int $count)
+    public function getFeatureProducts(int $count, string $sortBy = 'created_at', string $orderBy = 'ASC')
     {
-        return Product::where('feature', true)->paginate($count);
+        return Product::where('feature', true)->orderBy($sortBy, $orderBy)->orderBy('id')->paginate($count);
     }
 
     public function getProductBySlug(string $slug)

@@ -26,7 +26,7 @@
             <div class="product-section-subtitle">{{ $product->detail }}</div>
             <div class="product-section-price">{{ $product->price }}</div>
             <p>
-                {{ $product->desctiption }}
+                {{ $product->description }}
             </p>
 
             <form action="{{ route('cart.store') }}" method="POST">
