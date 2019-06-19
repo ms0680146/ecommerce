@@ -17,7 +17,7 @@
 
     <div class="products-section container">
         <div class="sidebar">
-            <h3>By Category</h3>
+            <h3>所有分類</h3>
             <ul>
             @foreach ($categories as $category)
                 <li class="{{ request()->category == $category->slug ? 'active' : '' }}"><a href="{{ route('shop.index', ['category' => $category->slug])}}">{{ $category->name }}</a></li>

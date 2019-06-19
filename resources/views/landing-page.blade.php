@@ -41,11 +41,6 @@
 
                     <p class="section-description">請挑選您喜歡的商品吧.</p>
 
-                    <div class="text-center button-container">
-                        <a href="#" class="button">Featured</a>
-                        <a href="#" class="button">On Sale</a>
-                    </div>
-
                     <div class="products text-center">
                         @foreach ($products as $product)
                             <div class="product">
@@ -57,16 +52,13 @@
                     </div> <!-- end products -->
 
                     <div class="text-center button-container">
-                        <a href="{{ route('shop.index') }}" class="button">View more products</a>
+                        <a href="{{ route('shop.index') }}" class="button">更多商品</a>
                     </div>
 
                 </div> <!-- end container -->
 
             </div> <!-- end featured-section -->
-
             @include('partials.footer')
-
         </div> <!-- end #app -->
-        <script src="js/app.js"></script>
     </body>
 </html>
