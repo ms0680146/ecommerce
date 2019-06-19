@@ -28,7 +28,14 @@ Route::post('/saveForLater/switch_to_cart/{product}', 'SaveForLaterController@sw
 Route::post('/coupon', 'CouponController@store')->name('coupon.store');
 Route::delete('/coupon', 'CouponController@destroy')->name('coupon.destroy');
 
-Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
-Route::get('/guest/checkout', 'CheckoutController@index')->name('guest.checkout.index');
+Route::middleware('auth')->group(function() {
+    Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+    Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
+    Route::get('/my/profile', 'UserController@profileEdit')->name('users.profile.edit');
+    Route::patch('/my/profile', 'UserController@profileUpdate')->name('users.profile.update');
+    Route::get('/my/order', 'UserController@orderIndex')->name('users.order.index');
+});
+
+Route::get('/thanks', 'StaticHtmlController@thanks')->name('static.thanks');
 
 Auth::routes();
