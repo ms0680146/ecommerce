@@ -79,6 +79,11 @@
                         </form>
                     </div> <!-- end have-code-container -->
                 @endif
+                <br>
+                <form action="{{ route('checkout.store') }}" method="POST">
+                    {{ csrf_field() }}
+                    <button type="submit" class="button button-plain">結帳</button>
+                </form>
             </div>
         </div> <!-- end checkout-section -->
     </div>

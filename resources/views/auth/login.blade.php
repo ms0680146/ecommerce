@@ -38,13 +38,6 @@
         <div class="auth-right">
             <h2>還不是會員嗎?</h2>
             <div class="spacer"></div>
-            <p><strong>訪客</strong></p>
-            <p>不需要創建會員即可購物.</p>
-            <div class="spacer"></div>
-            <a href="{{ route('guest.checkout.index') }}" class="auth-button-hollow">訪客登入</a>
-            <div class="spacer"></div>
-            &nbsp;
-            <div class="spacer"></div>
             <p><strong>註冊</strong></p>
             <p>註冊一個新的會員.</p>
             <div class="spacer"></div>
