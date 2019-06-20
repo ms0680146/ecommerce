@@ -37,5 +37,6 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::get('/thanks', 'StaticHtmlController@thanks')->name('static.thanks');
+Route::get('/search', 'ShopController@search')->name('search');
 
 Auth::routes();

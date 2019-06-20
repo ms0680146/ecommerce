@@ -7,12 +7,16 @@
 @endsection
 
 @section('content')
-
     <div class="breadcrumbs">
-        <div class="container">
-            <a href="/">首頁</a>
-            <i class="fa fa-chevron-right breadcrumb-separator"></i>
-            <span>個人頁面</span>
+        <div class="breadcrumbs-container container">
+            <div>
+                <a href="/">首頁</a>
+                <i class="fa fa-chevron-right breadcrumb-separator"></i>
+                <span>個人頁面</span>
+            </div>
+            <div>
+                @include('partials.menus.search')
+            </div>
         </div>
     </div> <!-- end breadcrumbs -->
 

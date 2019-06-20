@@ -51,4 +51,16 @@ class ShopController extends Controller
         $mightAlsoLike = Product::where('slug', '!=', $slug)->inRandomOrder()->take(4)->get(); 
         return view('product', compact('product', 'mightAlsoLike'));
     }
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'keyword' => 'required|min:3',
+        ]);
+
+        $keyword = $request->keyword;
+        $products = Product::search($keyword)->paginate(10);
+
+        return view('search-results', compact('products'));
+    }
 }
