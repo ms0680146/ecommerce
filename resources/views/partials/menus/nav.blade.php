@@ -1,7 +1,7 @@
 <header>
     <div class="top-nav container">
         <div class="top-nav-left">
-            <div class="logo">電子商務</div>
+            <a href="/"><div class="logo">電子商務</div></a>
             @include('partials.menus.main')
         </div>
         <div>

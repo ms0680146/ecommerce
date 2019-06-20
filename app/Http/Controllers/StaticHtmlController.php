@@ -6,6 +6,6 @@ class StaticHtmlController extends Controller
 {
     public function thanks()
     {
-        return view('thanks');
+        return view('pages.thanks');
     }
 }

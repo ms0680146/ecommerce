@@ -7,28 +7,22 @@
 @endsection
 
 @section('content')
-
     <div class="breadcrumbs">
-        <div class="container">
-            <a href="/">首頁</a>
-            <i class="fa fa-chevron-right breadcrumb-separator"></i>
-            <span>購物車</span>
+        <div class="breadcrumbs-container container">
+            <div>
+                <a href="/">首頁</a>
+                <i class="fa fa-chevron-right breadcrumb-separator"></i>
+                <span>購物車</span>
+            </div>
+            <div>
+                @include('partials.menus.search')
+            </div>
         </div>
     </div> <!-- end breadcrumbs -->
 
     <div class="cart-section container">
         <div>
-            @if (session()->has('success_message'))
-                <div class="alert alert-success">
-                    {{ session()->get('success_message') }}
-                </div>
-            @endif
-
-            @if(session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('error') }}
-                </div>
-            @endif
+            @include('partials.session-msg')
 
             @if (Cart::instance(config('cart.cart_type'))->count() > 0)
             <h2>{{ Cart::instance(config('cart.cart_type'))->count()}} 項商品被加入購物車</h2>

@@ -7,27 +7,21 @@
 @endsection
 
 @section('content')
-
     <div class="breadcrumbs">
-        <div class="container">
-            <a href="/">首頁</a>
-            <i class="fa fa-chevron-right breadcrumb-separator"></i>
-            <span>個人頁面</span>
+        <div class="breadcrumbs-container container">
+            <div>
+                <a href="/">首頁</a>
+                <i class="fa fa-chevron-right breadcrumb-separator"></i>
+                <span>個人頁面</span>
+            </div>
+            <div>
+                @include('partials.menus.search')
+            </div>
         </div>
     </div> <!-- end breadcrumbs -->
 
     <div class="container">
-        @if (session()->has('success_message'))
-            <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div>
-        @endif
-
-        @if(session()->has('error'))
-            <div class="alert alert-danger">
-                {{ session()->get('error') }}
-            </div>
-         @endif
+        @include('partials.session-msg')
     </div>
 
     <div class="products-section container">

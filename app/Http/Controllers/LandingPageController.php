@@ -17,6 +17,6 @@ class LandingPageController extends Controller
     public function index()
     {
         $products = $this->productRepo->getFeatureProducts(8);
-        return view('landing-page', compact('products'));
+        return view('pages.landing-page', compact('products'));
     }
 }
