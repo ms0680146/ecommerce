@@ -34,7 +34,7 @@
                         <strong>1. 商品功能</strong>: 商品展示，商品分類及分頁，商品提供價格排序。 <br>
                         <strong>2. 購物車功能</strong>: 商品移除及新增，Ajax實作商品數量的增加，稍後購買。 <br>
                         <strong>3. 結帳功能</strong>: 商品折扣碼使用，結帳資料寫入Database，查看結帳清單。<br>
-                        <strong>4. 會員系統</strong>: 註冊及登入，修改個人會員資料。
+                        <strong>4. 會員系統</strong>: 註冊及登入，修改個人會員資料，Google Login Api。
                         </p>
                     </div> <!-- end hero-copy -->
                 </div> <!-- end hero -->    

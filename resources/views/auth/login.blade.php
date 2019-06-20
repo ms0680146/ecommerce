@@ -6,17 +6,7 @@
 <div class="container">
     <div class="auth-pages">
         <div class="auth-left">
-            @if (session()->has('success_message'))
-                <div class="alert alert-success">
-                    {{ session()->get('success_message') }}
-                </div>
-            @endif
-
-            @if(session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('error') }}
-                </div>
-            @endif
+            @include('partials.session-msg')
 
             <h2>用戶登入</h2>
             <div class="spacer"></div>
@@ -33,6 +23,7 @@
 
                 <div class="spacer"></div>
             </form>
+            <a href="{{  route('google.login') }}" class="auth-button-hollow">使用Google帳號登入</a>
         </div>
 
         <div class="auth-right">
@@ -41,8 +32,7 @@
             <p><strong>註冊</strong></p>
             <p>註冊一個新的會員.</p>
             <div class="spacer"></div>
-            <a href="{{ route('register') }}" class="auth-button-hollow">會員註冊</a>
-
+            <a href="{{  route('register') }}" class="auth-button-hollow">會員註冊</a>
         </div>
     </div>
 </div>
