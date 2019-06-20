@@ -21,17 +21,7 @@
     </div> <!-- end breadcrumbs -->
 
     <div class="container">
-        @if (session()->has('success_message'))
-            <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div>
-        @endif
-
-        @if(session()->has('error'))
-            <div class="alert alert-danger">
-                {{ session()->get('error') }}
-            </div>
-         @endif
+        @include('partials.session-msg')
     </div>
 
     <div class="products-section container">

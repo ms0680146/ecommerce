@@ -22,17 +22,7 @@
 
     <div class="cart-section container">
         <div>
-            @if (session()->has('success_message'))
-                <div class="alert alert-success">
-                    {{ session()->get('success_message') }}
-                </div>
-            @endif
-
-            @if(session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('error') }}
-                </div>
-            @endif
+            @include('partials.session-msg')
 
             @if (Cart::instance(config('cart.cart_type'))->count() > 0)
             <h2>{{ Cart::instance(config('cart.cart_type'))->count()}} 項商品被加入購物車</h2>

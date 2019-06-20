@@ -11,7 +11,7 @@ class UserController extends Controller
     public function profileEdit()
     {
         $user = auth()->user();
-        return view('my-profile', compact('user'));
+        return view('pages.my-profile', compact('user'));
     }
 
     public function profileUpdate(Request $request)
@@ -44,6 +44,6 @@ class UserController extends Controller
     {
         $user = auth()->user();
         $orders = $user->orders()->with('products')->get();
-        return view('my-order', compact('user', 'orders'));
+        return view('pages.my-order', compact('user', 'orders'));
     }
 }

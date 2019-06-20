@@ -43,14 +43,14 @@ class ShopController extends Controller
             }
         }
 
-        return view('shop', compact('products', 'categories', 'categorySlug'));
+        return view('pages.shop', compact('products', 'categories', 'categorySlug'));
     }
 
     public function show(string $slug)
     {
         $product = $this->productRepo->getProductBySlug($slug);
         $mightAlsoLike = Product::where('slug', '!=', $slug)->inRandomOrder()->take(4)->get(); 
-        return view('product', compact('product', 'mightAlsoLike'));
+        return view('pages.product', compact('product', 'mightAlsoLike'));
     }
 
     public function search(Request $request)
@@ -66,6 +66,6 @@ class ShopController extends Controller
         $keyword = $request->keyword;
         $products = $this->productRepo->searchKeywordProducts($keyword);
 
-        return view('search-results', compact('products'));
+        return view('pages.search-results', compact('products'));
     }
 }

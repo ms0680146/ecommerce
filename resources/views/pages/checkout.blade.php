@@ -5,18 +5,7 @@
 @section('content')
 
     <div class="container"><br>
-        @if (session()->has('success_message'))
-            <div class="spacer"></div>
-            <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div>
-        @endif
-
-        @if(session()->has('error'))
-            <div class="alert alert-danger">
-                {{ session()->get('error') }}
-            </div>
-        @endif
+        @include('partials.session-msg')
 
         <h1 class="checkout-heading stylish-heading">結帳</h1>
         <div class="checkout-section">
