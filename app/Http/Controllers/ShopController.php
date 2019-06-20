@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Services\ProductBrowseService;
 use App\Repositories\ProductRepository;
 use App\Repositories\CategoryRepository;
 use App\Product;
@@ -12,11 +13,13 @@ class ShopController extends Controller
 {
     protected $productRepo;
     protected $categoryRepo;
+    protected $productBrowseService;
 
-    public function __construct(productRepository $productRepo, categoryRepository $categoryRepo)
+    public function __construct(productRepository $productRepo, categoryRepository $categoryRepo, ProductBrowseService $productBrowseService)
     {
         $this->productRepo = $productRepo;
         $this->categoryRepo = $categoryRepo;
+        $this->productBrowseService = $productBrowseService;
     }
 
     public function index(Request $request)
@@ -49,7 +52,9 @@ class ShopController extends Controller
     public function show(string $slug)
     {
         $product = $this->productRepo->getProductBySlug($slug);
-        $mightAlsoLike = Product::where('slug', '!=', $slug)->inRandomOrder()->take(4)->get(); 
+        $this->productBrowseService->setBrowseProductCookie($product->id);
+        $mightAlsoLike = $this->productRepo->getMightAlsoLikeProducts($slug, 4); 
+
         return view('pages.product', compact('product', 'mightAlsoLike'));
     }
 
