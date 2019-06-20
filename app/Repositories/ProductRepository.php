@@ -25,6 +25,25 @@ class ProductRepository
         return $products;
     }
 
+    public function getBrowsedProducts($browseProductsIdArray, int $count, string $sortBy = 'created_at', string $orderBy = 'ASC')
+    {
+        $browsedProducts = Product::whereIn('id', $browseProductsIdArray)
+                                ->orderBy($sortBy, $orderBy)
+                                ->take($count)
+                                ->get();
+        return $browsedProducts;
+    }
+
+    public function getMightAlsoLikeProducts(string $slug, int $count)
+    {
+        $mightAlsoLikeProducts = Product::where('slug', '!=', $slug)
+                                    ->inRandomOrder()
+                                    ->take($count)
+                                    ->get(); 
+
+        return $mightAlsoLikeProducts;
+    }
+    
     public function searchKeywordProducts($keyword, $count = 10, string $sortBy = 'created_at', string $orderBy = 'ASC')
     {
         $products = Product::search($keyword)->orderBy($sortBy, $orderBy)->paginate($count);

@@ -30,17 +30,43 @@
                 <div class="hero container">
                     <div class="hero-copy">
                         <h1>電子商務平台展示</h1>
-                        <p>包含商品, 部落格, 購物車等功能</p>
+                        <p><strong>功能包含:</strong><br>
+                        <strong>1. 商品功能</strong>: 商品展示，商品分類及分頁，商品提供價格排序。 <br>
+                        <strong>2. 購物車功能</strong>: 商品移除及新增，Ajax實作商品數量的增加，稍後購買。 <br>
+                        <strong>3. 結帳功能</strong>: 商品折扣碼使用，結帳資料寫入Database，查看結帳清單。<br>
+                        <strong>4. 會員系統</strong>: 註冊及登入，修改個人會員資料。
+                        </p>
                     </div> <!-- end hero-copy -->
                 </div> <!-- end hero -->    
             </header>
 
            <div class="featured-section">
                 <div class="container">
-                    <h1 class="text-center">商品</h1>
-
-                    <p class="section-description">請挑選您喜歡的商品吧.</p>
-
+                    @if ($browsedProducts->isNotEmpty())
+                    <h1 class="text-center">曾瀏覽過的商品</h1>
+                    <p class="section-description">透過cookie紀錄瀏覽過的商品，實作流程:  <br>
+                    1. 於Product頁看過一個商品，會將該商品的id存到瀏覽紀錄，瀏覽紀錄以cookie存取。 <br>
+                    2. 當看過的商品已經出現在瀏覽紀錄裡面，就不用重複存取。 <br>
+                    3. 當瀏覽紀錄已經有8筆時，當有新的商品加入，最舊的一筆會被剔除。 <br> 
+                    4. 從cookie中拿出瀏覽紀錄中商品的id。 <br>
+                    5. 藉由cookie拿出的id，可以找到商品。 <br>
+                    </p>
+                        <div class="products text-center">
+                            @foreach ($browsedProducts as $product)
+                                <div class="product">
+                                    <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ asset('img/products/'.$product->slug.'.jpg') }}" alt="product"></a>
+                                    <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
+                                    <div class="product-price">{{ round($product->price) }}</div>
+                                </div>
+                            @endforeach
+                        </div> <!-- end browsed Products -->
+                    @endif
+                    <br>
+                    @if($products->isNotEmpty())
+                    <h1 class="text-center">精選商品</h1>
+                    <p class="section-description">商品(Products)的table有紀錄feature欄位，目的為精選出商品:  <br>
+                    單純透過sql下出feature=true，亦即此商品為精選商品，另外也依照商品創建的時間進行排序。 <br>
+                    </p>
                     <div class="products text-center">
                         @foreach ($products as $product)
                             <div class="product">
@@ -50,6 +76,7 @@
                             </div>
                         @endforeach
                     </div> <!-- end products -->
+                    @endif
 
                     <div class="text-center button-container">
                         <a href="{{ route('shop.index') }}" class="button">更多商品</a>
