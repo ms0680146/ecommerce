@@ -40,3 +40,5 @@ Route::get('/thanks', 'StaticHtmlController@thanks')->name('static.thanks');
 Route::get('/search', 'ShopController@search')->name('search');
 
 Auth::routes();
+Route::get('/auth/google', 'Auth\LoginController@redirectToGoogle')->name('google.login');
+Route::get('/auth/google/callback', 'Auth\LoginController@handleGoogleCallback')->name('google.login.callback');
