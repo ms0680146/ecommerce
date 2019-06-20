@@ -1,5 +1,5 @@
 #  Ecommerce
-這是一個電子商務網站，提供了以下功能: 商品展示、結帳、搜尋功能，購物車系統，會員系統。
+這是一個電子商務展示網站，呈現以下功能: 商品展示、結帳、搜尋功能，購物車系統，會員系統。
 ****
 ## Techniques
 * 01 Use Laradock to build Docker development environment. 
