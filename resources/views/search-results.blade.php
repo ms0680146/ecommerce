@@ -22,8 +22,19 @@
 
     <div class="search-results-container container">
         <h1>搜尋結果</h1>
-        <p class="search-results-count">{{ $products->total() }} 個 '{{ request()->keyword }}' 搜尋結果</p>
+        @if (session()->has('success_message'))
+            <div class="spacer"></div>
+            <div class="alert alert-success">
+                {{ session()->get('success_message') }}
+            </div>
+        @endif
 
+        @if(session()->has('error'))
+            <div class="alert alert-danger">
+                {{ session()->get('error') }}
+            </div>
+        @endif
+        <p class="search-results-count">{{ $products->total() }} 個 '{{ request()->keyword }}' 搜尋結果</p>
         @if ($products->total() > 0)
         <table class="table table-bordered table-striped">
             <thead>

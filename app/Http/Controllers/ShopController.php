@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Repositories\ProductRepository;
 use App\Repositories\CategoryRepository;
 use App\Product;
@@ -54,12 +55,16 @@ class ShopController extends Controller
 
     public function search(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'keyword' => 'required|min:3',
         ]);
 
+        if ($validator->fails()) {
+            return back()->with('error', '關鍵字最少輸入三個字');
+        }
+
         $keyword = $request->keyword;
-        $products = Product::search($keyword)->paginate(10);
+        $products = $this->productRepo->searchKeywordProducts($keyword);
 
         return view('search-results', compact('products'));
     }

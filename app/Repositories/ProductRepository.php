@@ -24,4 +24,11 @@ class ProductRepository
 
         return $products;
     }
+
+    public function searchKeywordProducts($keyword, $count = 10, string $sortBy = 'created_at', string $orderBy = 'ASC')
+    {
+        $products = Product::search($keyword)->orderBy($sortBy, $orderBy)->paginate($count);
+
+        return $products;
+    }
 }

@@ -26,6 +26,10 @@ class Product extends Model
             'description' => [
                 'type' => 'text'
             ],
+            'created_at' => [
+                'type' => 'date',
+                'format' => 'yyyy-MM-dd HH:mm:ss'
+            ],
         ]
     ];
 
