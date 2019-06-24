@@ -26,4 +26,8 @@ https://medium.com/@ms0680146/docker%E5%BB%BA%E7%BD%AElaravel%E7%92%B0%E5%A2%83-
 
 
 ## Results
-
+* 01 商品功能 Demo:     https://youtu.be/OH7EfFh_vpk
+* 02 購物車功能 Demo:     https://youtu.be/FjowQW7Yh1I
+* 03 結帳功能 Demo:     https://youtu.be/mQgdf-Qscdo
+* 04 會員功能 Demo:     https://youtu.be/ae3O48gev2A
+* 05 搜尋功能 Demo:     https://youtu.be/69kiEJBIun4
