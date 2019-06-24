@@ -16,7 +16,7 @@ https://medium.com/@ms0680146/docker%E5%BB%BA%E7%BD%AElaravel%E7%92%B0%E5%A2%83-
 * 02 <strong>購物車功能</strong>:     購物車商品移除及新增，Ajax實作購物車商品數量的增加，購物車稍後購買。 <br>
 * 03 <strong>結帳功能</strong>:     商品折扣碼使用，結帳資料寫入mysql，查看個人結帳清單。<br>
 * 04 <strong>會員功能</strong>:     註冊及登入，修改更新個的人會員資料，提供Google Oauth2登入。<br>
-* 05 <strong>搜尋功能</strong>:    採用Elasticsearch做引擎，laravel scout做全文索引。<br>
+* 05 <strong>搜尋功能</strong>:    採用Elasticsearch做引擎，laravel scout實作全文索引。<br>
 * 06 <strong>測試feature test</strong>:    以Laravel內建支援的PHPUnit撰寫頁面測試。
 
 ## Packages
